@@ -15,6 +15,7 @@ class OauthQR extends StatelessWidget {
         backgroundColor: Colors.grey[200],
         body: QRScreen(),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -25,6 +26,7 @@ class QRScreen extends StatelessWidget {
     return Center(
       child: SizedBox(
         width: 600,
+        height: 800,
         child: Card(
           child: QRCode(),
         ),
@@ -47,15 +49,17 @@ class QRCode extends StatelessWidget {
     final randomNumber = _generateRandomToken().toString();
 
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         QrImage(
           data: randomNumber,
-          size: 200,
+          size: 240,
         ),
         Container(
           height: 40,
           width: double.infinity,
           margin: EdgeInsets.all(6),
+          alignment: Alignment.center,
           child: Text(randomNumber),
         )
       ],
